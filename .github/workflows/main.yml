@@ -1,14 +1,18 @@
 on: push
+
 name: 🚀 Deploy website on push
+
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v6
-        
-      - name: 📂 Sync files
+
+      - name: 📂 Sync files - TEST DRY RUN
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ftp-lequaiantique.alwaysdata.net
@@ -17,3 +21,12 @@ jobs:
           protocol: ftps
           port: 21
           server-dir: /www/
+          dry-run: true
+          log-level: verbose
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            **/scss/**
+            **/sass/**
