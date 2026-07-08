@@ -14,7 +14,7 @@ jobs:
         server: ftp-lequaiantique.alwaysdata.net
         username: lequaiantique
         password: ${{ secrets.ftp_password }}
-        erver-dir: /www/
+        server-dir: /www/
         exclude: |
           **/.git*
           **/.git*/**
