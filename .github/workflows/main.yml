@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v6
+        
       - name: 📂 Sync files - TEST DRY RUN
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
@@ -20,7 +21,6 @@ jobs:
           protocol: ftps
           port: 21
           server-dir: /www/
-          dry-run: true
           log-level: verbose
           exclude: |
             **/.git*
